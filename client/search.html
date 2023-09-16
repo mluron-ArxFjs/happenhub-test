@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a responsive product landing page.">
+    <title>HappenHub</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="./src/App.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <form class="pure-form pure-form-stacked">
+
+        <label for="keyword">
+            <h4>Search Events</h4>
+        </label>
+        <input id="keyword" type="text" placeholder="Type of Event/Keyword">
+
+        <table>
+            <td>
+                <h4>Start Date</h4>
+                <input id="startDate" type="date" name="startdate" placeholder="Start Date">
+            </td>
+            <td>
+                <h4>End Date</h4>
+                <input id="endDate" type="date" name="enddate" placeholder="End Date">
+            </td>
+        </table>
+
+        <label for="city">
+            <h4>Location</h4>
+        </label>
+        <input id="location" type="text" placeholder="City or Zip Code">
+
+        <button type="submit" class="pure-button-light" id="btnSubmit">Search</button>
+        <button type="reset" class="pure-button-light" id="btnReset">Reset</button>
+
+    </form>
+    <div id="displayResults" class="displayResultsContainer"></div>
+
+    <div><img src='./src/assets/pink-back.jpeg' height='400px'></div>
+</body>
+
+</html>
