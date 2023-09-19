@@ -36,7 +36,7 @@ const Hubnav = () => {
                             </NavDropdown>
                             <Nav.Link href="/favorites">Favorites</Nav.Link>
                         </Nav>
-
+                        <a href='search.html' className='pure-button'>Get Started</a>
                         <Form className="d-flex" id="city-zip">
                             <Form.Control
                                 type="search"
@@ -45,7 +45,7 @@ const Hubnav = () => {
                             />
                             <Button variant="outline-success">Search</Button>
                         </Form>
-
+                        
                         <Form className="d-flex" id="search-form">
                             <Form.Control
                                 type="search"

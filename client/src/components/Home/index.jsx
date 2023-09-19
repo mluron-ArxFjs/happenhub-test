@@ -7,7 +7,6 @@ const Home = () => {
                 <h1>HappenHub </h1>
                 <div className='site-description'>
                 <p>Find the best events in your area!</p>
-                <a href='search.html' className='pure-button'>Get Started</a>
             </div>
             </div>
             <div className='back-img'>

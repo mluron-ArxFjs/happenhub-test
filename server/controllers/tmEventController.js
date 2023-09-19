@@ -3,7 +3,6 @@ const TM_KEY = "m0o6ngepm1tvjHNa09clKOFNQZnWVpzK";
 const TM_SIZE = 25;
 const TM_RADIUS = 50; // in miles
 
-
 router.get("/ticketMasterSearch", (req, res) => {
     // Query ticketmaster API with what is in req.body
     // Send it back as JSON
@@ -28,6 +27,7 @@ var tmEvent = function (id, name, url, genreName, startlocalDate, startlocalTime
     this.venuesLatitude = venuesLatitude;
     this.venuesLongitude = venuesLongitude;
 }
+
 //userInput
 var userInput = function (keyword, startDate, endDate, location, latitude, longitude) {
     this.keyword = keyword;
@@ -36,16 +36,7 @@ var userInput = function (keyword, startDate, endDate, location, latitude, longi
     this.location = location;
     this.latitude = latitude;
     this.longitude = longitude;
-    this.geoPoint = function () {
-        if (this.latitude === '' || this.latitude == null || this.longitude === '' || this.longitude == null) {
-            return '';
-        }
-        else {
-            return this.latitude + "," + this.longitude;
-        }
-    };
 }
-
 
 // this function using regular expression to find out the user location input is city or zip code.
 function isCity(location) {
@@ -66,7 +57,6 @@ function isCity(location) {
 function tmEventSearch(userInput) {
     var tmEventList = [];
     var rootUrl = "https://app.ticketmaster.com/discovery/v2/events.json?size=" + TM_SIZE + "&apikey=" + TM_KEY + "&radius=" + TM_RADIUS + "&unit=miles";
-    //var rootUrl = "https://app.ticketmaster.com/discovery/v2/events.json?size=25&apikey=m0o6ngepm1tvjHNa09clKOFNQZnWVpzK&postalCode=11215&classificationName=concert&radius=50"
     var queryParameters = "";
     if (userInput.keyword !== '' && userInput.keyword != null) {
         queryParameters += "&keyword=" + userInput.keyword;
@@ -256,7 +246,6 @@ function retrieveData4EventDetailsPage() {
     }
     displayEventDetails(tmEventList[index]);
 }
-
 function displayEventDetails(tmEvent) {
     var imageHolder = $("#images");
     var aTag = $("<a>");
@@ -289,32 +278,3 @@ function displayEventDetails(tmEvent) {
     btnPurchaseTicket.addClass("pure-button pure-button-primary");
     purchaseTicket.append(btnPurchaseTicket);
 }
-
-function retrieveSearchResults4HomePage() {
-    var queryStringId = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    var queryId = queryStringId[0].substring(7, queryStringId[0].length);
-    if (queryId === "true") {
-        var tmEventListObject = localStorage.getItem("tmEventListString");
-        var mytmEventList = JSON.parse(tmEventListObject);
-        displaySearchResult(mytmEventList);
-    }
-}
-//$(document).ready(function () {
-//var url = top.location.pathname;
-//var fileName = url.substring(url.lastIndexOf("/") + 1);
-//if (fileName === "event.html") {
-//retrieveData4EventDetailsPage();
-//}
-//if (fileName === "search.html") {
-// retrieveSearchResults4HomePage();
-//}
-//});
-//$(document).on("click","#btnPurchase",buyTicket);
-//function buyTicket(){
-//var url=$(this).attr("data-url");
-//window.open(url,"_blank");
-//};
-//$("#btnBackSearch").on("click", function (event) {
-//event.preventDefault();
-//window.location.href = "search.html?reload=true";
-//});
