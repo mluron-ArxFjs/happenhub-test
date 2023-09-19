@@ -12,6 +12,8 @@ import Food from './components/Food';
 import Sports from './components/Sports';
 import Art from './components/Art';
 import Favorites from './components/Favorites';
+import EventListMusic from './components/Music/EventList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import Contact from './components/Contact';
 
 
@@ -52,6 +54,7 @@ function App() {
           <Route path='sports' element={<Sports />} />
           <Route path='art' element={<Art />} />
           <Route path='favorites' element={<Favorites />} />
+          <Route path="/music/concerts" element={<EventListMusic />} />
           {/* <Route path='contact' element={<Contact/>} /> */}
         </Route>
       </Routes>
